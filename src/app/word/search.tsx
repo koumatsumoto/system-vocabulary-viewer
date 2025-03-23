@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import React, { useState, useMemo } from "react";
-import { WordData } from "../word/types";
-import WordList from "./word-list";
+import { WordData } from "./types";
+import WordList from "./list";
 
 interface WordSearchProps {
   words: WordData[];
@@ -13,9 +13,7 @@ export default function WordSearch({ words }: WordSearchProps) {
 
   const filteredWords = useMemo(() => {
     const normalizedSearch = searchTerm.toLowerCase();
-    return searchTerm
-      ? words.filter((word) => word.name.toLowerCase().includes(normalizedSearch))
-      : [];
+    return searchTerm ? words.filter((word) => word.name.toLowerCase().includes(normalizedSearch)) : [];
   }, [words, searchTerm]);
 
   return (

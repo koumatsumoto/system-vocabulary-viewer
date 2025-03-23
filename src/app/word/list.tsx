@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import React from "react";
-import Word from "../word/word";
-import { WordData } from "../word/types";
+import Word from "./word";
+import { WordData } from "./types";
 
 interface WordListProps {
   words: WordData[];

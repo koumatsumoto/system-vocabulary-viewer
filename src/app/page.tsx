@@ -1,4 +1,4 @@
-import WordSearch from "./components/word-search/word-search";
+import WordSearch from "./word/search";
 import words from "./data.json";
 
 export default function Home() {
