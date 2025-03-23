@@ -27,12 +27,12 @@ export default function WordSearch({ words }: WordSearchProps) {
           maxLength={20}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="用語を検索"
+          placeholder="Search terms"
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
-        {showError && <p className="mt-2 text-red-500 text-sm">3文字以上入力してください</p>}
+        {showError && <p className="mt-2 text-red-500 text-sm">Please enter at least 3 characters</p>}
       </div>
-      {searchTerm.length >= 3 && <div className="mb-4 text-gray-600">{filteredWords.length}件見つかりました</div>}
+      {searchTerm.length >= 3 && <div className="mb-4 text-gray-600">{filteredWords.length} results found</div>}
       <WordList words={filteredWords} />
     </div>
   );
