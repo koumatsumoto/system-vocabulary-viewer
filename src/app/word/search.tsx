@@ -13,8 +13,11 @@ export default function WordSearch({ words }: WordSearchProps) {
 
   const filteredWords = useMemo(() => {
     const normalizedSearch = searchTerm.toLowerCase();
-    return searchTerm ? words.filter((word) => word.name.toLowerCase().includes(normalizedSearch)) : [];
+    if (searchTerm.length < 3) return [];
+    return words.filter((word) => word.name.toLowerCase().includes(normalizedSearch));
   }, [words, searchTerm]);
+
+  const showError = searchTerm.length > 0 && searchTerm.length < 3;
 
   return (
     <div>
@@ -27,7 +30,9 @@ export default function WordSearch({ words }: WordSearchProps) {
           placeholder="用語を検索"
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
+        {showError && <p className="mt-2 text-red-500 text-sm">3文字以上入力してください</p>}
       </div>
+      {searchTerm.length >= 3 && <div className="mb-4 text-gray-600">{filteredWords.length}件見つかりました</div>}
       <WordList words={filteredWords} />
     </div>
   );

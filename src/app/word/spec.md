@@ -24,6 +24,14 @@ The Word Search component provides functionality to search and display a list of
   - Maximum length: 20 characters
   - Purpose: Filter word list based on input text
   - Updates results in real-time as user types
+  - Minimum search length: 3 characters
+    - Display error message when input is less than 3 characters
+    - Only perform search when 3 or more characters are entered
+
+### Search Results
+
+- Display total count of matching results above the word list
+- Format: "Found X matches" where X is the number of matching words
 
 ### Word List Display
 
