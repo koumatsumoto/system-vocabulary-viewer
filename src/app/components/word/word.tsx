@@ -1,17 +1,7 @@
-import React from "react";
+'use client';
 
-interface WordData {
-  number: string;
-  name: string;
-  alias?: string;
-  definitions: {
-    text: string;
-    reference?: string;
-  }[];
-  confer?: string;
-  example?: string;
-  note?: string;
-}
+import React from "react";
+import { WordData } from "./types";
 
 export default function Word({ word }: { word: WordData }) {
   return (

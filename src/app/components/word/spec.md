@@ -1,22 +1,51 @@
-# Word
+# Word Search Component Specification
 
-システム開発の用語データを表示するためのコンポーネント。
-マスターデータの `data.json` の各データを表示するために使う。
+## Overview
 
-## データ定義
+The Word Search component provides functionality to search and display a list of vocabulary words from the system's data.
 
-```ts
-// data.json のデータ
-interface Word {
-  number: string;
-  name: string;
-  alias?: string | undefined;
-  definitions: {
-    text: string;
-    reference?: string;
-  }[];
-  confer?: string | undefined;
-  example?: string | undefined;
-  note?: string | undefined;
-}
-```
+## Components Structure
+
+- `WordSearch`: Main container component that handles the search logic and state
+- `WordList`: Component to display the filtered list of words
+- `Word`: (existing) Component to display individual word details
+
+## Requirements
+
+### Data Loading
+
+- Load all word data from data.json initially
+- Display no words on initial load (empty state)
+
+### Search Input
+
+- Located at the top of the component
+- Text input field with the following constraints:
+  - Maximum length: 20 characters
+  - Purpose: Filter word list based on input text
+  - Updates results in real-time as user types
+
+### Word List Display
+
+- Shows filtered words based on search criteria
+- Initial state: Display no words
+- Filtering:
+  - Match based on word.name field
+  - Case-insensitive search
+  - Updates dynamically as user types in search input
+  - Shows all matching words (no limit)
+
+### Word Display
+
+- Each word displayed using existing Word component
+- Maintains current styling and layout for consistency
+
+## Technical Details
+
+- State Management: React useState for search term and filtered results
+- Props Interface for WordSearch:
+  ```typescript
+  interface WordSearchProps {
+    words: WordData[]; // Initial data from data.json
+  }
+  ```
