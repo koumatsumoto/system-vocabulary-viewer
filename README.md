@@ -1,5 +1,9 @@
 System-Vocabulary-Viewer: A Next.js-based single-page application designed to help developers easily browse and reference essential system development vocabulary. Perfect for quick lookups and learning key terms in software engineering, architecture, and DevOps. Streamline your knowledge with a clean, intuitive interface!
 
+## Deployment
+
+The application is deployed using GitHub Actions and hosted at [https://koumatsumoto.github.io/system-vocabulary-viewer/](https://koumatsumoto.github.io/system-vocabulary-viewer/)
+
 ## Getting Started
 
 First, run the development server:
