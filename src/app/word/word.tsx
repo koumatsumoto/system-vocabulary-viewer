@@ -8,7 +8,7 @@ export default function Word({ word }: { word: WordData }) {
     <div className="mx-auto bg-white rounded-lg shadow-lg p-5 text-left mb-8">
       <span className="text-sm text-gray-500 block mb-2">{word.number}</span>
       <h2 className="text-2xl text-gray-800 font-bold mb-2">{word.name}</h2>
-      {word.alias && <h3 className="text-lg text-gray-600 mb-4">({word.alias})</h3>}
+      {word.alias && <h3 className="text-lg text-gray-600 mb-4">({word.alias.join(", ")})</h3>}
 
       <div className="space-y-12">
         {word.definitions.map((def, index) => (
@@ -24,7 +24,7 @@ export default function Word({ word }: { word: WordData }) {
           </div>
         )}
 
-        {word.confer && <p className="text-sm text-gray-600 mt-4">c.f. {word.confer}</p>}
+        {word.confer && <p className="text-sm text-gray-600 mt-4">c.f. {word.confer.join(", ")}</p>}
 
         {word.note && <p className="text-sm text-gray-600 italic mt-4">Note: {word.note}</p>}
       </div>
