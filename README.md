@@ -10,6 +10,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Updating data.json
+
+To update the data.json file with the latest system vocabulary data, run:
+
+```bash
+curl -o src/app/data.json https://raw.githubusercontent.com/koumatsumoto/system-vocabulary-parser/refs/heads/main/data/output.json
+```
+
 ## Code Formatting
 
 To format your code using Prettier, run:
