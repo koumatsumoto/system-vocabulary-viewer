@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { WordData } from "./types";
+import { Word } from "./schema";
 
-export default function Word({ word }: { word: WordData }) {
+export default function WordListItem({ word }: { word: Word }) {
   return (
     <div className="mx-auto bg-white rounded-lg shadow-lg p-5 text-left mb-8">
       <span className="text-sm text-gray-500 block mb-2">{word.number}</span>

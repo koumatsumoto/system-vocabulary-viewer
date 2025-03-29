@@ -8,7 +8,7 @@ The Word Search component provides functionality to search and display a list of
 
 - `WordSearch`: Main container component that handles the search logic and state
 - `WordList`: Component to display the filtered list of words
-- `Word`: (existing) Component to display individual word details
+- `WordListItem`: (existing) Component to display individual word details
 
 ## Requirements
 
@@ -54,6 +54,6 @@ The Word Search component provides functionality to search and display a list of
 - Props Interface for WordSearch:
   ```typescript
   interface WordSearchProps {
-    words: WordData[]; // Initial data from data.json
+    words: Word[]; // Initial data from data.json
   }
   ```

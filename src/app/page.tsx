@@ -1,15 +1,15 @@
-import WordSearch from "./word/search";
-import words from "./data.json" assert { type: "json" };
-import { wordDataSchema } from "./word/types";
+import WordSearch from "./word/WordSearch";
+import data from "./data.json" assert { type: "json" };
+import { wordSchema } from "./word/schema";
 import { z } from "zod";
 
-const typedWords = z.array(wordDataSchema).parse(words);
+const words = z.array(wordSchema).parse(data);
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-8">System Development Vocabulary</h1>
-      <WordSearch words={typedWords} />
+      <WordSearch words={words} />
     </div>
   );
 }

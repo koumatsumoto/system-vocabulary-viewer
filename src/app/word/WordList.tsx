@@ -1,18 +1,18 @@
 "use client";
 
 import React from "react";
-import Word from "./word";
-import { WordData } from "./types";
+import WordListItem from "./WordListItem";
+import { Word } from "./schema";
 
 interface WordListProps {
-  words: WordData[];
+  words: Word[];
 }
 
 export default function WordList({ words }: WordListProps) {
   return (
     <div className="space-y-6">
       {words.map((word) => (
-        <Word key={word.number} word={word} />
+        <WordListItem key={word.number} word={word} />
       ))}
     </div>
   );

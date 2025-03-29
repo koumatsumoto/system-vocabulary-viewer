@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { WordData } from "./types";
-import WordList from "./list";
+import { Word } from "./schema";
+import WordList from "./WordList";
 
 interface WordSearchProps {
-  words: WordData[];
+  words: Word[];
 }
 
 export default function WordSearch({ words }: WordSearchProps) {
