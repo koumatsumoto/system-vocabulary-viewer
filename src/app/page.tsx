@@ -1,8 +1,9 @@
 import WordSearch from "./word/search";
 import words from "./data.json" assert { type: "json" };
-import { WordData } from "./word/types";
+import { wordDataSchema } from "./word/types";
+import { z } from "zod";
 
-const typedWords = words as WordData[];
+const typedWords = z.array(wordDataSchema).parse(words);
 
 export default function Home() {
   return (
