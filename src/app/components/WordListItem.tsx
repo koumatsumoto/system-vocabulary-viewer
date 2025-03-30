@@ -1,15 +1,16 @@
 "use client";
 
 import React from "react";
-import { Word } from "./schema";
-import { Language } from "../page";
+import { Word } from "../data/schema";
+import { useLanguageStore } from "../state/language";
 
 interface WordListItemProps {
   word: Word;
-  language: Language;
 }
 
-export default function WordListItem({ word, language }: WordListItemProps) {
+export default function WordListItem({ word }: WordListItemProps) {
+  const { language } = useLanguageStore();
+
   return (
     <div className="mx-auto bg-white rounded-lg shadow-lg p-5 text-left mb-8">
       <span className="text-sm text-gray-500 block mb-2">{word.number}</span>

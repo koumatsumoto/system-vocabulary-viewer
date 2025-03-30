@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Word } from "./schema";
+import { Word } from "../data/schema";
 import WordList from "./WordList";
-import { Language } from "../page";
 
 interface WordSearchProps {
   words: Word[];
-  language: Language;
 }
 
-export default function WordSearch({ words, language }: WordSearchProps) {
+export default function WordSearch({ words }: WordSearchProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredWords = useMemo(() => {
@@ -35,7 +33,7 @@ export default function WordSearch({ words, language }: WordSearchProps) {
         {showError && <p className="mt-2 text-red-500 text-sm">Please enter at least 3 characters</p>}
       </div>
       {searchTerm.length >= 3 && <div className="mb-4 text-gray-600">{filteredWords.length} results found</div>}
-      <WordList words={filteredWords} language={language} />
+      <WordList words={filteredWords} />
     </div>
   );
 }
