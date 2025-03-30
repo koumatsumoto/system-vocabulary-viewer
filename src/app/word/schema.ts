@@ -11,6 +11,7 @@ export const wordSchema = z.object({
     .array(
       z.object({
         text: z.string().min(1),
+        textJa: z.string().min(1),
         reference: z.string().min(1).optional(),
       }),
     )
@@ -20,7 +21,9 @@ export const wordSchema = z.object({
     .rest(z.string().min(1))
     .optional(),
   example: z.string().min(1).optional(),
+  exampleJa: z.string().min(1).optional(),
   note: z.string().min(1).optional(),
+  noteJa: z.string().min(1).optional(),
 });
 
 export type Word = z.infer<typeof wordSchema>;

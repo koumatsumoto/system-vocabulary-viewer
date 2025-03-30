@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 To update the data.json file with the latest system vocabulary data, run:
 
 ```bash
-curl -o src/app/data.json https://raw.githubusercontent.com/koumatsumoto/system-vocabulary-parser/refs/heads/main/data/output.json
+curl -o src/app/data.json https://raw.githubusercontent.com/koumatsumoto/system-vocabulary-parser/refs/heads/main/data/output-translated.json
 ```
 
 ## Code Formatting

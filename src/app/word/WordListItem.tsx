@@ -2,8 +2,14 @@
 
 import React from "react";
 import { Word } from "./schema";
+import { Language } from "../page";
 
-export default function WordListItem({ word }: { word: Word }) {
+interface WordListItemProps {
+  word: Word;
+  language: Language;
+}
+
+export default function WordListItem({ word, language }: WordListItemProps) {
   return (
     <div className="mx-auto bg-white rounded-lg shadow-lg p-5 text-left mb-8">
       <span className="text-sm text-gray-500 block mb-2">{word.number}</span>
@@ -15,7 +21,7 @@ export default function WordListItem({ word }: { word: Word }) {
           {word.definitions.map((def, index) => (
             <div key={index} className="my-2">
               <p className="text-base text-gray-800">
-                {index + 1}. {def.text}
+                {index + 1}. {language === "en" ? def.text : def.textJa}
               </p>
               {def.reference && <p className="text-sm text-gray-500 mt-2">Reference: {def.reference}</p>}
             </div>
@@ -23,9 +29,11 @@ export default function WordListItem({ word }: { word: Word }) {
         </div>
 
         <div className="mt-8">
-          {word.example && (
+          {(language === "en" ? word.example : word.exampleJa) && (
             <div className="py-2 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-700">Example: {word.example}</p>
+              <p className="text-sm text-gray-700">
+                {language === "en" ? "Example:" : "例:"} {language === "en" ? word.example : word.exampleJa}
+              </p>
             </div>
           )}
 
@@ -35,9 +43,11 @@ export default function WordListItem({ word }: { word: Word }) {
             </div>
           )}
 
-          {word.note && (
+          {(language === "en" ? word.note : word.noteJa) && (
             <div className="py-2 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-700 italic">Note: {word.note}</p>
+              <p className="text-sm text-gray-700 italic">
+                {language === "en" ? "Note:" : "備考:"} {language === "en" ? word.note : word.noteJa}
+              </p>
             </div>
           )}
         </div>
