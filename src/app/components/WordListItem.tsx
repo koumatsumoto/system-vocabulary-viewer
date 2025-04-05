@@ -14,7 +14,18 @@ export default function WordListItem({ word }: WordListItemProps) {
   return (
     <div className="mx-auto bg-white rounded-lg shadow-lg p-5 text-left mb-8">
       <span className="text-sm text-gray-500 block mb-2">{word.number}</span>
-      <h2 className="text-2xl text-gray-800 font-bold mb-2">{word.name}</h2>
+      <div className="flex justify-between items-start">
+        <h2 className="text-2xl text-gray-800 font-bold mb-2">{language === "en" ? word.name : word.name_ja}</h2>
+        {word.categories && word.categories.length > 0 && (
+          <div className="flex gap-2 flex-wrap justify-end">
+            {word.categories.map((category, index) => (
+              <span key={index} className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
+                {category}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
       {word.alias && <h3 className="text-lg text-gray-600 mb-4">({word.alias.join(", ")})</h3>}
 
       <div className="space-y-4">

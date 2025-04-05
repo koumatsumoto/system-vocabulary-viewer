@@ -3,6 +3,7 @@ import { z } from "zod";
 export const wordSchema = z.object({
   number: z.string().min(1),
   name: z.string().min(1),
+  name_ja: z.string().min(1),
   alias: z
     .tuple([z.string().min(1)])
     .rest(z.string().min(1))
@@ -24,6 +25,7 @@ export const wordSchema = z.object({
   exampleJa: z.string().min(1).optional(),
   note: z.string().min(1).optional(),
   noteJa: z.string().min(1).optional(),
+  categories: z.array(z.string().min(1)),
 });
 
 export type Word = z.infer<typeof wordSchema>;
